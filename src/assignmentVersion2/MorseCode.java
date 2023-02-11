@@ -23,14 +23,7 @@ public class MorseCode {
         }
     }
 
-    /*  public void splitText(String text) {
-          String[] stringArray = text.split(" ");
 
-      }
-
-      public String[] getText(String text){
-          return stringArray;
-      }*/
     public String getCode(String text) {
 
         String textUp = text.toUpperCase();
@@ -51,11 +44,3 @@ public class MorseCode {
     }
 
 }
-/*
- if (codes.get(key) == null) {
-            result = "Invalid code";
-        } else result = codes.get(key);
-        return result;
-
-        !(codes.get(stringArray[i])).equals(null)
- */
