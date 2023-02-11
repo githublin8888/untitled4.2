@@ -11,7 +11,7 @@ public class Symbol {
         String symbols = "!?+#¤%&/()=@£${[]}^¨~<>|;:";
         for(int i=0;i<alfabet.length();i++){
             symbol.put(alfabet.charAt(i),symbols.charAt(i));
-            symbol.put(symbols.charAt(i),alfabet.charAt(i));
+            //symbol.put(symbols.charAt(i),alfabet.charAt(i));
         }
 
     }

@@ -57,9 +57,18 @@ public class MorseCodeTestFall {
     @Test
     public void wrongCode() {
         MorseCode code = new MorseCode();
-        String expected = "-";
-        String actual = code.getCode("Wrong code, please check.");
+        String expected = "Invalid code";
+        String actual = code.getCode("==!@#");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void longText() {
+        MorseCode code = new MorseCode();
+        String expected = "*- -*** -*-*";
+        String actual = code.getCode("a b c");
+        assertEquals(expected, actual);
+    }
+
 
 }
