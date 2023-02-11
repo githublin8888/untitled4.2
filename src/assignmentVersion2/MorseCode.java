@@ -7,6 +7,8 @@ public class MorseCode {
     private HashMap<String, String> codes;
 
     public MorseCode() {
+        //   this.stringArray=stringArray;
+
         codes = new HashMap<>();
         String[] morseCode = {"*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--",
                 "-*", "---", "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**", "*----",
@@ -21,14 +23,39 @@ public class MorseCode {
         }
     }
 
+    /*  public void splitText(String text) {
+          String[] stringArray = text.split(" ");
 
-    public String getCode(String key) {
-        String result="";
-        if (codes.get(key)==null){
-            result="Invalid code";
-        }else result=codes.get(key);
-            return result;
+      }
+
+      public String[] getText(String text){
+          return stringArray;
+      }*/
+    public String getCode(String text) {
+
+        String textUp = text.toUpperCase();
+        String[] stringArray = textUp.split(" ");
+        String finalText = "";
+        String outcome = "";
+        for (int i = 0; i < stringArray.length; i++) {
+            if (codes.get(stringArray[i])!=null) {
+                outcome =codes.get(stringArray[i]);
+            }else {
+                outcome="invalid code";
+            }
+            finalText+=outcome+" ";
+        }
+        return finalText;
 
 
     }
+
 }
+/*
+ if (codes.get(key) == null) {
+            result = "Invalid code";
+        } else result = codes.get(key);
+        return result;
+
+        !(codes.get(stringArray[i])).equals(null)
+ */
