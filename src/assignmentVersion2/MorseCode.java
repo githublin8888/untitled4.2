@@ -7,7 +7,6 @@ public class MorseCode {
     private HashMap<String, String> codes;
 
     public MorseCode() {
-        //   this.stringArray=stringArray;
 
         codes = new HashMap<>();
         String[] morseCode = {"*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--",
@@ -29,14 +28,14 @@ public class MorseCode {
         String textUp = text.toUpperCase();
         String[] stringArray = textUp.split(" ");
         String finalText = "";
-        String outcome = "";
+        String value = "";
         for (int i = 0; i < stringArray.length; i++) {
             if (codes.get(stringArray[i])!=null) {
-                outcome =codes.get(stringArray[i]);
+                value =codes.get(stringArray[i]);
             }else {
-                outcome="invalid code";
+                value="invalid code";
             }
-            finalText+=outcome+" ";
+            finalText+=value+" ";
         }
         return finalText;
 
