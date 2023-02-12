@@ -94,5 +94,11 @@ public class MorseCodeTestFall {
         assertEquals(expected, actual);
     }
 
-
+    @Test
+    public void noSpace() {
+        MorseCode code = new MorseCode();
+        String expected = "invalid code ";
+        String actual = code.getCode("abc");
+        assertEquals(expected, actual);
+    }
 }

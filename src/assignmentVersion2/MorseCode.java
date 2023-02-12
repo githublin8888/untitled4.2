@@ -27,17 +27,18 @@ public class MorseCode {
 
         String textUp = text.toUpperCase();
         String[] stringArray = textUp.split(" ");
+
         String finalText = "";
         String value = "";
         for (int i = 0; i < stringArray.length; i++) {
-            try{
-                if (codes.get(stringArray[i])!=null) {
-                    value =codes.get(stringArray[i]);
-                }else {
-                    value="invalid code";
+            try {
+                if (codes.get(stringArray[i]) != null) {
+                    value = codes.get(stringArray[i]);
+                } else {
+                    value = "invalid code";
                 }
-                finalText+=value+" ";
-            }catch (Exception e){
+                finalText += value + " ";
+            } catch (IllegalArgumentException e) {
             }
 
         }
