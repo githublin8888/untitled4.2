@@ -30,12 +30,16 @@ public class MorseCode {
         String finalText = "";
         String value = "";
         for (int i = 0; i < stringArray.length; i++) {
-            if (codes.get(stringArray[i])!=null) {
-                value =codes.get(stringArray[i]);
-            }else {
-                value="invalid code";
+            try{
+                if (codes.get(stringArray[i])!=null) {
+                    value =codes.get(stringArray[i]);
+                }else {
+                    value="invalid code";
+                }
+                finalText+=value+" ";
+            }catch (Exception e){
             }
-            finalText+=value+" ";
+
         }
         return finalText;
 
