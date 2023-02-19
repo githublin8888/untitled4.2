@@ -24,27 +24,51 @@ public class MorseCode {
 
 
     public String getCode(String text) {
-
-        String textUp = text.toUpperCase();
-        String[] stringArray = textUp.split(" ");
-
         String finalText = "";
         String value = "";
-        for (int i = 0; i < stringArray.length; i++) {
-            try {
-                if (codes.get(stringArray[i]) != null) {
-                    value = codes.get(stringArray[i]);
-                } else {
-                    value = "invalid code";
+        String textUp = text.toUpperCase();
+
+        if (text.length() > 1 && !text.contains(" ")) {
+            if (codes.get(text) != null) {
+                finalText = codes.get(text);
+            } else {
+                String[] stringArray1 = textUp.split("");
+                for (int i = 0; i < stringArray1.length; i++) {
+
+                    if (codes.get(stringArray1[i]) != null) {
+                        finalText = "Please separate with space.";
+                    } else if (codes.get(stringArray1[i]) == null) {
+                        finalText = "It contains illegal character.";
+                        break;
+                    } else finalText = "invalid code";
                 }
-                finalText += value + " ";
-            } catch (IllegalArgumentException e) {
+            }
+
+        } else {
+            if (textUp.length() == 1 && codes.get(textUp) != null) {
+                finalText = codes.get(text);
+            } else {
+                String[] stringArray = textUp.split(" ");
+                for (int i = 0; i < stringArray.length; i++) {
+
+                    try {
+
+                        if (codes.get(stringArray[i]) != null) {
+                            value = codes.get(stringArray[i]);
+                        } else {
+                            value = "invalid code";
+                        }
+                        finalText += value + " ";
+                    } catch (IllegalArgumentException e) {
+                    }
+
+                }
             }
 
         }
+
         return finalText;
 
-
     }
-
 }
+

@@ -8,7 +8,7 @@ public class MorseCodeTestFall {
     @Test
     public void englishToMorse() {
         MorseCode code = new MorseCode();
-        String expected = "-*** ";
+        String expected = "-***";
         String actual = code.getCode("B");
         assertEquals(expected, actual);
     }
@@ -16,7 +16,7 @@ public class MorseCodeTestFall {
     @Test
     public void morseToEnglish() {
         MorseCode code = new MorseCode();
-        String expected = "A ";
+        String expected = "A";
         String actual = code.getCode("*-");
         assertEquals(expected, actual);
     }
@@ -24,7 +24,7 @@ public class MorseCodeTestFall {
     @Test
     public void morseToNr() {
         MorseCode code = new MorseCode();
-        String expected = "1 ";
+        String expected = "1";
         String actual = code.getCode("*----");
         assertEquals(expected, actual);
     }
@@ -32,7 +32,7 @@ public class MorseCodeTestFall {
     @Test
     public void nRTomorse() {
         MorseCode code = new MorseCode();
-        String expected = "*---- ";
+        String expected = "*----";
         String actual = code.getCode("1");
         assertEquals(expected, actual);
     }
@@ -41,7 +41,7 @@ public class MorseCodeTestFall {
     @Test
     public void morseToCharacter() {
         MorseCode code = new MorseCode();
-        String expected = "**--** ";
+        String expected = "**--**";
         String actual = code.getCode("?");
         assertEquals(expected, actual);
     }
@@ -49,32 +49,8 @@ public class MorseCodeTestFall {
     @Test
     public void characterToMorse() {
         MorseCode code = new MorseCode();
-        String expected = "? ";
+        String expected = "?";
         String actual = code.getCode("**--**");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void wrongCode() {
-        MorseCode code = new MorseCode();
-        String expected = "invalid code ";
-        String actual = code.getCode("==!@#");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void mixWrongCode() {
-        MorseCode code = new MorseCode();
-        String expected = "invalid code E ";
-        String actual = code.getCode("==!@# *");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void upperCaseLong() {
-        MorseCode code = new MorseCode();
-        String expected = "*- -*** -*-* ";
-        String actual = code.getCode("A B C");
         assertEquals(expected, actual);
     }
 
@@ -93,12 +69,62 @@ public class MorseCodeTestFall {
         String actual = code.getCode("Y E S ?");
         assertEquals(expected, actual);
     }
-
     @Test
-    public void noSpace() {
+    public void mixMoEng() {
         MorseCode code = new MorseCode();
-        String expected = "invalid code ";
-        String actual = code.getCode("abc");
+        String expected = "*- -*** A ";
+        String actual = code.getCode("a b *-");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void wrongCode1() {
+        MorseCode code = new MorseCode();
+        String expected = "It contains illegal character.";
+        String actual = code.getCode("==!@#");
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void wrongCode2() {
+        MorseCode code = new MorseCode();
+        String expected = "It contains illegal character.";
+        String actual = code.getCode(")--");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void mixWrongAndRight() {
+        MorseCode code = new MorseCode();
+        String expected = "invalid code E ";
+        String actual = code.getCode("-------- *");
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void upperCaseLong() {
+        MorseCode code = new MorseCode();
+        String expected = "*- -*** -*-* ";
+        String actual = code.getCode("A B C");
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void noSpace1() {
+        MorseCode code = new MorseCode();
+        String expected = "Please separate with space.";
+        String actual = code.getCode("ASDF.");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void noSpace2() {
+        MorseCode code = new MorseCode();
+        String expected = "Please separate with space.";
+        String actual = code.getCode("12345");
+        assertEquals(expected, actual);
+    }
+
+
 }
