@@ -2,6 +2,7 @@ package assignmentVersion2;
 
 import java.util.HashMap;
 
+
 public class MorseCode {
 
     private HashMap<String, String> codes;
@@ -13,7 +14,7 @@ public class MorseCode {
                 "-*", "---", "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**", "*----",
                 "**---", "***--", "****-", "*****", "-****", "--***", "---**", "----*", "-----", "*-*-*-", "--**--", "**--**",};
 
-        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "0", "P", "Q", "R", "S", "T", "U", "V", "W",
+        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W",
                 "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ",", "?"};
 
         for (int i = 0; i < morseCode.length; i++) {
@@ -45,26 +46,28 @@ public class MorseCode {
             }
 
         } else {
-            if (textUp.length() == 1 && codes.get(textUp) != null) {
-                finalText = codes.get(text);
-            } else {
-                String[] stringArray = textUp.split(" ");
-                for (int i = 0; i < stringArray.length; i++) {
 
-                    try {
+            String output = "";
+            String[] stringArray = textUp.split(" ");
+            for (int i = 0; i < stringArray.length; i++) {
 
-                        if (codes.get(stringArray[i]) != null) {
-                            value = codes.get(stringArray[i]);
-                        } else {
-                            value = "invalid code";
-                        }
-                        finalText += value + " ";
-                    } catch (IllegalArgumentException e) {
+                try {
+
+                    if (codes.get(stringArray[i]) != null) {
+                        value = codes.get(stringArray[i]);
+                    } else {
+                        value = "invalid code";
                     }
+                    output += value + " ";
+                    StringBuffer sb = new StringBuffer(output);
+                    sb.deleteCharAt(sb.length() - 1);
+                    finalText = sb.toString();
 
+
+                } catch (IllegalArgumentException e) {
                 }
-            }
 
+            }
         }
 
         return finalText;

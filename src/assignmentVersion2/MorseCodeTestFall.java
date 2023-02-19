@@ -37,7 +37,6 @@ public class MorseCodeTestFall {
         assertEquals(expected, actual);
     }
 
-
     @Test
     public void morseToCharacter() {
         MorseCode code = new MorseCode();
@@ -55,57 +54,48 @@ public class MorseCodeTestFall {
     }
 
     @Test
-    public void lowerCaseLong() {
+    public void lowercaseLong() {
         MorseCode code = new MorseCode();
-        String expected = "*- -*** -*-* ";
+        String expected = "*- -*** -*-*";
         String actual = code.getCode("a b c");
         assertEquals(expected, actual);
     }
 
     @Test
-    public void longText() {
+    public void uppercaseLong() {
         MorseCode code = new MorseCode();
-        String expected = "-*-- * *** **--** ";
+        String expected = "-*-- * *** **--**";
         String actual = code.getCode("Y E S ?");
         assertEquals(expected, actual);
     }
     @Test
     public void mixMoEng() {
         MorseCode code = new MorseCode();
-        String expected = "*- -*** A ";
+        String expected = "*- -*** A";
         String actual = code.getCode("a b *-");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void wrongCode1() {
-        MorseCode code = new MorseCode();
-        String expected = "It contains illegal character.";
-        String actual = code.getCode("==!@#");
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void wrongCode2() {
-        MorseCode code = new MorseCode();
-        String expected = "It contains illegal character.";
-        String actual = code.getCode(")--");
         assertEquals(expected, actual);
     }
 
     @Test
     public void mixWrongAndRight() {
         MorseCode code = new MorseCode();
-        String expected = "invalid code E ";
+        String expected = "invalid code E";
         String actual = code.getCode("-------- *");
         assertEquals(expected, actual);
     }
 
-
     @Test
-    public void upperCaseLong() {
+    public void illegalCode1() {
         MorseCode code = new MorseCode();
-        String expected = "*- -*** -*-* ";
-        String actual = code.getCode("A B C");
+        String expected = "It contains illegal character.";
+        String actual = code.getCode("==!@#");
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void illegalCode2() {
+        MorseCode code = new MorseCode();
+        String expected = "It contains illegal character.";
+        String actual = code.getCode(")--");
         assertEquals(expected, actual);
     }
 
