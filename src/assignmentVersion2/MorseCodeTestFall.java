@@ -79,7 +79,7 @@ public class MorseCodeTestFall {
     @Test
     public void mixWrongAndRight() {
         MorseCode code = new MorseCode();
-        String expected = "invalid code E";
+        String expected = "# E";
         String actual = code.getCode("-------- *");
         assertEquals(expected, actual);
     }
@@ -87,14 +87,14 @@ public class MorseCodeTestFall {
     @Test
     public void illegalCode1() {
         MorseCode code = new MorseCode();
-        String expected = "It contains illegal character.";
+        String expected = "It contains illegal character: ==!@#";
         String actual = code.getCode("==!@#");
         assertEquals(expected, actual);
     }
     @Test
     public void illegalCode2() {
         MorseCode code = new MorseCode();
-        String expected = "It contains illegal character.";
+        String expected = "It contains illegal character: )";
         String actual = code.getCode(")--");
         assertEquals(expected, actual);
     }
