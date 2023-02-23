@@ -1,5 +1,6 @@
 package assignmentVersion2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -12,7 +13,7 @@ public class MorseCode {
         codes = new HashMap<>();
         String[] morseCode = {"*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--",
                 "-*", "---", "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**", "*----",
-                "**---", "***--", "****-", "*****", "-****", "--***", "---**", "----*", "-----", "*-*-*-", "--**--", "**--**",};
+                "**---", "***--", "****-", "*****", "-****", "--***", "---**", "----*", "-----", "*-*-*-", "--**--", "**--**"};
 
         String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W",
                 "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ",", "?"};
@@ -24,7 +25,7 @@ public class MorseCode {
     }
 
     public String getCode(String text) {
-        String finalText = "";  //output: the translated text or error message
+        String finalText = "";  //the translated text or error message
         String textUp = text.toUpperCase();
 
         if (text.length() > 1 && !text.contains(" ")) {  //to check if the text is separated with space
@@ -36,21 +37,22 @@ public class MorseCode {
 
                     if (codes.get(stringArray1[i]) != null) {
                         finalText = "Please separate with space.";
-                    } else if (codes.get(stringArray1[i]) == null) {//to check if every character is legal
+                    } else  {//to check if every character is legal     //else if (codes.get(stringArray1[i]) == null)
 
-                        String illegal="";
-                        for (int j = 0; j < stringArray1.length; j++){
-                            if(codes.get(stringArray1[j]) == null){
-                                illegal+=stringArray1[j];
+                        String illegal = "";
+                        for (int j = 0; j < stringArray1.length; j++) {
+                            if (codes.get(stringArray1[j]) == null) {
+                                illegal += stringArray1[j];
                             }
                         }
-                        finalText = "It contains illegal character: "+illegal; //to pick out illegal character
-                       break;
+                        finalText = "It contains illegal character: " + illegal; //to pick out illegal character
+                        break;
                     }
                 }
             }
 
-        } else {
+        }
+        else {
             String value = ""; //corresponding single code or error message
             String output = "";
             String[] stringArray = textUp.split(" ");
@@ -68,12 +70,10 @@ public class MorseCode {
 
                 } catch (IllegalArgumentException e) {
                 }
-
             }
         }
 
         return finalText;
-
     }
 }
 

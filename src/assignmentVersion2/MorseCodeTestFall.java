@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class MorseCodeTestFall {
+public class MorseCodeTestFall {   // sex typer av testfall
+
+    // one to one
     @Test
     public void englishToMorse() {
         MorseCode code = new MorseCode();
@@ -53,6 +55,7 @@ public class MorseCodeTestFall {
         assertEquals(expected, actual);
     }
 
+    // long text
     @Test
     public void lowercaseLong() {
         MorseCode code = new MorseCode();
@@ -68,6 +71,8 @@ public class MorseCodeTestFall {
         String actual = code.getCode("Y E S ?");
         assertEquals(expected, actual);
     }
+
+    // mix codes
     @Test
     public void mixMoEng() {
         MorseCode code = new MorseCode();
@@ -76,6 +81,7 @@ public class MorseCodeTestFall {
         assertEquals(expected, actual);
     }
 
+    // invalid code
     @Test
     public void mixWrongAndRight() {
         MorseCode code = new MorseCode();
@@ -84,6 +90,7 @@ public class MorseCodeTestFall {
         assertEquals(expected, actual);
     }
 
+    // illegal character
     @Test
     public void illegalCode1() {
         MorseCode code = new MorseCode();
@@ -100,6 +107,7 @@ public class MorseCodeTestFall {
     }
 
 
+    // not separated
     @Test
     public void noSpace1() {
         MorseCode code = new MorseCode();
